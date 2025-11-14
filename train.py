@@ -4,7 +4,6 @@ import torch.optim as optim
 from m_o_e import MoE
 
 def train_model(model, optimizer, criterion, data, targets, epochs: int = 1000, lb_lambda: float = 0.1):
-    model = MoE
     model.train()
     for epoch in range(epochs):
         optimizer.zero_grad()
@@ -32,7 +31,7 @@ if __name__ == "__main__":
     optimizer = optim.Adam(moe.parameters(), lr=0.005)
     
     print("Training MoE...")
-    train_model(MoE, optimizer, loss_function, input_data, target_data, epochs=1000, lb_lambda=0.1)
+    train_model(moe, optimizer, loss_function, input_data, target_data, epochs=1000, lb_lambda=0.1)
     moe.eval()
     with torch.no_grad():
         predictions, gate_probs = moe(input_data)

@@ -6,11 +6,11 @@ from expert import Expert
 class MoE(nn.Module):
   
     def __init__(self, num_experts: int, input_size: int, hidden_size: int, output_size: int, temperature: float = 1.0):
-        super(MixtureOfExperts, self).__init__()
+        super(MoE, self).__init__()
         self.num_experts = num_experts
         self.temperature = temperature
         self.experts = nn.ModuleList([
-            AdvancedExpert(input_size, hidden_size, output_size) for _ in range(num_experts)
+            Expert(input_size, hidden_size, output_size) for _ in range(num_experts)
         ])
         self.gating_layer = nn.Linear(input_size, num_experts)
     
