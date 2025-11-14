@@ -9,7 +9,7 @@ def main():
     input_data = torch.randn(200, 15)
     target_data = (torch.tanh(input_data.sum(dim=1)) + 0.1 * torch.randn(200)).unsqueeze(1)
     NUM_EXPERTS = 4
-    INPUT_SIZE = 15 .
+    INPUT_SIZE = 15
     HIDDEN_SIZE = 30    
     OUTPUT_SIZE = 1    
     TEMPERATURE = 2.0  
